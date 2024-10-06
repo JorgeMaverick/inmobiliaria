@@ -1,0 +1,22 @@
+/* src/app/property-detail/property-detail.component.css */
+.property-detail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.property-detail-card {
+  width: 80%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+mat-card-title {
+  font-size: 28px;
+  color: #3949ab;
+}
+
+mat-card-content p {
+  font-size: 18px;
+  color: #424242;
+}

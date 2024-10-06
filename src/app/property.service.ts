@@ -1,0 +1,111 @@
+import { Injectable } from '@angular/core';
+
+interface Property {
+  id: number;
+  name: string;
+  location: string;
+  price: number;
+  imageUrl: string;
+  description: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PropertyService {
+  private properties: Property[] = [
+    { id: 1, name: 'Apartamento en el Centro', location: 'Madrid', price: 120000, imageUrl: 'https://elestimulo.com/wp-content/uploads/2016/02/edificios-1-1100x618.jpg', description: 'Hermoso apartamento en el centro de Madrid.' },
+    { id: 2, name: 'Casa con Jardín', location: 'Barcelona', price: 220000, imageUrl: 'https://humanidades.com/wp-content/uploads/2018/07/propiedad-privada-1-e1572226252649.jpg', description: 'Espaciosa casa con jardín en las afueras.' },
+    {
+      id: 3,
+      name: 'Casa moderna en la playa',
+      location: 'Punta del Este, Uruguay',
+      price: 350000,
+      imageUrl: 'https://i.ytimg.com/vi/14enu62bo4Y/maxresdefault.jpg',
+      description: 'Casa con vista al mar, excelente ubicación para disfrutar de la tranquilidad y el sonido del océano.'
+    },
+    {
+      id: 4,
+      name: 'Departamento en el centro',
+      location: 'Madrid, España',
+      price: 500000,
+      imageUrl: 'https://multimedia.metrocuadrado.com/3390-M4517222/3390-M4517222_8_p.jpg',
+      description: 'Moderno departamento de lujo, a pocos minutos de la Puerta del Sol.'
+    },
+    {
+      id: 5,
+      name: 'Casa de campo',
+      location: 'Toscana, Italia',
+      price: 750000,
+      imageUrl: 'https://www.elmueble.com/medio/2019/10/02/fachada-casa-campo-con-jardin-00492107_116fe7da_2000x1335.jpg',
+      description: 'Preciosa casa de campo con jardín y viñedos, ideal para los amantes de la naturaleza.'
+    },
+    {
+      id: 6,
+      name: 'Loft industrial',
+      location: 'Nueva York, EE.UU.',
+      price: 950000,
+      imageUrl: 'https://miroytengo.es/blog/wp-content/uploads/2019/04/miroytengo-blog-lof-industrial-0.jpg',
+      description: 'Espacioso loft industrial en el corazón de Manhattan, con techos altos y ventanales panorámicos.'
+    },
+    {
+      id: 7,
+      name: 'Apartamento moderno',
+      location: 'Ciudad de México, México',
+      price: 250000,
+      imageUrl: 'https://images.ctfassets.net/cfexf643femz/1H3xy23nobNYHhmandji2z/52c4c9a5077314869f4d44539a7ed4ec/Fotos_La_haus__10_.jpg?w=1136&fm=webp&q=60',
+      description: 'Hermoso apartamento en una zona céntrica con vista panorámica y todas las comodidades modernas.'
+    },
+    {
+      id: 8,
+      name: 'Villa en las montañas',
+      location: 'Bariloche, Argentina',
+      price: 680000,
+      imageUrl: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/443549231.jpg?k=da27e2af6a366c04a8df33f64f655aa3c11151fd450ffc21b406ac7b195f1d30&o=&hp=1',
+      description: 'Villa rodeada de paisajes montañosos, perfecta para los amantes del esquí y la naturaleza.'
+    },
+    {
+      id: 9,
+      name: 'Casa rural con encanto',
+      location: 'Provenza, Francia',
+      price: 450000,
+      imageUrl: 'data:image/jpeg;base64,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',
+      description: 'Casa rústica en el corazón de la Provenza, rodeada de campos de lavanda y viñedos.'
+    },
+    {
+      id: 10,
+      name: 'Penthouse de lujo',
+      location: 'Dubai, Emiratos Árabes Unidos',
+      price: 1500000,
+      imageUrl: 'https://colombiarents.com/wp-content/uploads/2018/05/alquiler-penthouse-cartagena-16-38129_880x550.jpg',
+      description: 'Exclusivo penthouse en uno de los rascacielos más altos de Dubai, con vistas impresionantes al mar.'
+    },
+    {
+      id: 11,
+      name: 'Cabaña acogedora',
+      location: 'Reykjavik, Islandia',
+      price: 220000,
+      imageUrl: 'https://a0.muscache.com/im/pictures/8d72cef3-fae4-4ed3-a905-d4980a3917e5.jpg?im_w=720',
+      description: 'Cabaña en un entorno natural espectacular, ideal para disfrutar de las auroras boreales.'
+    },
+    {
+      id: 12,
+      name: 'Casa moderna con piscina',
+      location: 'Miami, EE.UU.',
+      price: 850000,
+      imageUrl: 'https://st3.depositphotos.com/1391729/35048/i/450/depositphotos_350484602-stock-photo-swimming-pool-wooden-deck-view.jpg',
+      description: 'Casa con piscina en una zona residencial exclusiva, perfecta para disfrutar del sol y la vida de lujo.'
+    }
+    // Otros inmuebles...
+  ];
+
+  constructor() { }
+
+  getProperties() {
+    return this.properties;
+  }
+
+  getProperty(id: number) {
+    return this.properties.find(property => property.id === id);
+  }
+}

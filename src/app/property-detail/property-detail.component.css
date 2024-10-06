@@ -1,0 +1,173 @@
+/* src/app/property-detail/property-detail.component.css */
+.property-detail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.property-detail-card {
+  width: 80%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+mat-card-title {
+  font-size: 28px;
+  color: #3949ab;
+}
+
+mat-card-content p {
+  font-size: 18px;
+  color: #424242;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden; /* Oculta imágenes fuera del contenedor */
+}
+
+
+
+.carousel-images {
+  display: flex; /* Coloca las imágenes en línea */
+  transition: transform 0.5s ease; /* Transición suave */
+  /* Aquí ya no necesitas la propiedad transform, se aplica dinámicamente en el HTML */
+}
+
+.carousel-images img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  opacity: 0; /* Oculta las imágenes por defecto */
+  transition: opacity 0.5s ease; /* Transición suave para el cambio de opacidad */
+}
+
+.carousel-images img.active {
+  opacity: 1; /* Solo la imagen activa es visible */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.carousel-button:first-of-type {
+  left: 10px; /* Posición del botón izquierdo */
+}
+
+.carousel-button:last-of-type {
+  right: 10px; /* Posición del botón derecho */
+}
+
+
+.form-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 20px auto; /* Centra el formulario */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.open-form-button {
+  background-color: #f50057; /* Color del botón */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.open-form-button:hover {
+  background-color: #c51162; /* Color al pasar el mouse */
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #4caf50; /* Color del botón de enviar */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-button {
+  background-color: #f44336; /* Color del botón de cerrar */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover,
+.close-button:hover {
+  opacity: 0.8; /* Efecto al pasar el mouse */
+}
+
+
+.property-detail-container {
+  display: flex; /* Utiliza flexbox para el layout */
+  height: 100vh; /* Altura completa de la ventana */
+}
+
+.property-detail-card {
+  flex: 1; /* Ocupa la mitad de la pantalla */
+  padding: 20px;
+  overflow-y: auto; /* Agrega scroll si el contenido es muy largo */
+}
+
+.map-and-form-container {
+  flex: 1; /* Ocupa la otra mitad de la pantalla */
+  display: flex;
+  flex-direction: column; /* Coloca el mapa y el botón en columna */
+  padding: 20px;
+}
+
+iframe {
+  height: 600px; /* Altura del iframe del mapa */
+  width: 100%; /* Ancho completo */
+  border: 0; /* Elimina el borde */
+}
+
+.open-form-button {
+  margin-top: 10px; /* Espacio entre el mapa y el botón */
+  background-color: #f50057;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.form-container {
+  margin-top: 20px; /* Espacio entre el botón y el formulario */
+  background-color: #f9f9f9; /* Fondo claro para el formulario */
+  padding: 15px;
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}

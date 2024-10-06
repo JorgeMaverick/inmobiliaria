@@ -1,0 +1,32 @@
+/* src/app/property-list/property-list.component.css */
+.property-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.property-card {
+  width: 300px;
+  transition: transform 0.2s;
+}
+
+.property-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-title {
+  font-size: 22px;
+  color: #3949ab; /* Color primario */
+}
+
+mat-card-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #616161;
+}
+
+button {
+  background-color: #f50057;
+  color: white;
+}
