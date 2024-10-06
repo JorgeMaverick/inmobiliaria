@@ -1,0 +1,15 @@
+<!-- src/app/property-list/property-list.component.html -->
+<div class="property-container" fxLayout="row" fxLayoutGap="20px" fxLayoutWrap>
+  <mat-card *ngFor="let property of properties" class="property-card">
+    <img mat-card-image [src]="property.imageUrl" class="property-image" alt="Imagen del inmueble" style="margin-top: 5px;">
+    <mat-card-title style="margin-top: 10px;">{{ property.name }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ property.location }}</p>
+      <p>{{ property.price | currency }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" [routerLink]="['/property', property.id]">Ver Detalles</button>
+
+    </mat-card-actions>
+  </mat-card>
+</div>

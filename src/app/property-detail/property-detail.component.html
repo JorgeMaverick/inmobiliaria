@@ -1,0 +1,50 @@
+<div class="property-detail-container">
+  <div class="property-detail-card">
+    <mat-card class="property-detail-card">
+      <img mat-card-image [src]="property.imageUrl" alt="Imagen del inmueble">
+      <div class="carousel">
+        <div class="carousel-images">
+          <img *ngFor="let image of property.images; let i = index" [src]="image" [class.active]="i === currentImageIndex" />
+        </div>
+        <button (click)="prevImage()" class="carousel-button">❮</button>
+        <button (click)="nextImage()" class="carousel-button">❯</button>
+      </div>
+      <mat-card-title>{{ property.name }}</mat-card-title>
+      <mat-card-content>
+        <p><strong>Ubicación:</strong> {{ property.location }}</p>
+        <p><strong>Precio:</strong> {{ property.price | currency }}</p>
+        <p>{{ property.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/">Volver a la lista</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="map-and-form-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7952.892084151483!2d-74.06778933068122!3d4.692293249069272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1728213758024!5m2!1ses-419!2sco" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <button (click)="openForm()" class="open-form-button">Reservar</button>
+    <div *ngIf="isFormOpen" class="form-container">
+      <h3>Formulario de Reserva</h3>
+      <form (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+        <label for="fullName">Nombre Completo:</label>
+        <input type="text" id="fullName" name="fullName" required ngModel />
+
+        <label for="identification">Identificación:</label>
+        <input type="text" id="identification" name="identification" required ngModel />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required ngModel />
+
+        <label for="phone">Teléfono:</label>
+        <input type="tel" id="phone" name="phone" required ngModel />
+
+        <label for="dateTime">Fecha y Hora:</label>
+        <input type="datetime-local" id="dateTime" name="dateTime" required ngModel />
+
+        <button type="submit" class="submit-button">Enviar</button>
+        <button type="button" (click)="closeForm()" class="close-button">Cerrar</button>
+      </form>
+    </div>
+  </div>
+</div>
